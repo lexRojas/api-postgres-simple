@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.route_presupuesto import route_presupuesto
 from routes.route_sectores import route_sectores
 from routes.route_elementos import route_elementos
-from routes.route_empleados import route_sectores
+from routes.route_empleados import route_empleado
 
 
 
@@ -32,4 +32,4 @@ async def read_root():
 app.include_router(route_presupuesto)
 app.include_router(route_sectores)
 app.include_router(route_elementos)
-app.include_router(route_elementos)
+app.include_router(route_empleado)

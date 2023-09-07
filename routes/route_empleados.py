@@ -3,10 +3,10 @@ from fastapi import APIRouter
 from config.db import conn
 import psycopg2.extras
 
-route_sectores = APIRouter()
+route_empleado = APIRouter()
 
 
-@route_sectores.get("/empleados")
+@route_empleado.get("/empleados")
 def get_empleados(presupuesto=''):
    with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as dict_cur:
       dict_cur.execute("select codigo_empleado,"+
