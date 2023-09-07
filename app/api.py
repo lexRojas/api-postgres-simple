@@ -4,6 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 #---IMPORTACION DE RUTAS 
 
 from routes.route_presupuesto import route_presupuesto
+from routes.route_sectores import route_sectores
+from routes.route_elementos import route_elementos
+from routes.route_empleados import route_sectores
 
 
 
@@ -24,9 +27,9 @@ app.add_middleware(
 
 @app.get("/")
 async def read_root():
-    return 'hola a todos'
-    
+    return {"mensaje":'hola a todos'}
 
-# app.include_router(route_user)
-# app.include_router(route_usuarios)
 app.include_router(route_presupuesto)
+app.include_router(route_sectores)
+app.include_router(route_elementos)
+app.include_router(route_elementos)
