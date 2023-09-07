@@ -13,7 +13,7 @@ def get_elementos(presupuesto='', sector = 'A'):
                        "es.cod_ele_sec, "+
                        "es.descripcion,"+
                        "es.comentario,"+
-                       "um.descripcion, "+
+                       "um.descripcion unidad_medida, "+
                        "es.cantidad_elemento "+     
                        "from tb_elementos_sectores es " +
                        "inner join tb_unidad_medida um on um.cod_unidad_medida = es.unidad_medida " +
