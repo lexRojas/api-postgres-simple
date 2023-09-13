@@ -7,6 +7,7 @@ from routes.route_presupuesto import route_presupuesto
 from routes.route_sectores import route_sectores
 from routes.route_elementos import route_elementos
 from routes.route_empleados import route_empleado
+from routes.route_reset import route_reset
 
 
 
@@ -29,6 +30,7 @@ app.add_middleware(
 async def read_root():
     return {"mensaje":'hola a todos'}
 
+app.include_router(route_reset)
 app.include_router(route_presupuesto)
 app.include_router(route_sectores)
 app.include_router(route_elementos)
