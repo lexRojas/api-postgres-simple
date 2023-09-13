@@ -19,5 +19,7 @@ def get_elementos(presupuesto='', sector = 'A'):
                        "inner join tb_unidad_medida um on um.cod_unidad_medida = es.unidad_medida " +
                        "where es.presupuesto= '"+ presupuesto+"' and es.sector= '"+ sector +"' ")
       result = dict_cur.fetchall()
+      dict_cur.close()
+
    return result
 

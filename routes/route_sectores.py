@@ -11,5 +11,6 @@ def get_sectores(presupuesto=''):
    with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as dict_cur:
       dict_cur.execute("select presupuesto, codigo_sector,descripcion from public.tb_sectores_proyectos sp where sp.presupuesto= '"+ presupuesto +"'")
       result = dict_cur.fetchall()
+      dict_cur.close()
    return result
 
