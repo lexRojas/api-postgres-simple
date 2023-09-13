@@ -7,7 +7,7 @@ route_empleado = APIRouter()
 
 
 @route_empleado.get("/empleados")
-def get_empleados(presupuesto=''):
+def get_empleados(presupuesto=0):
    with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as dict_cur:
       dict_cur.execute("select codigo_empleado,"+
                        "concat( nombre1,' ',nombre2,' ',apellido1,' ',apellido2) as nombre_completo " + 
@@ -15,7 +15,7 @@ def get_empleados(presupuesto=''):
                        "inner join payroll.persona p on e.persona_idpersona = p.idpersona " +
                        "where fecha_salida is null " +
                        "and funcion = 'C-Campo' " +
-                       "and proyecto_presupuesto = '"+ presupuesto+"'")
+                       "and proyecto_presupuesto = "+ str(presupuesto)+"")
       result = dict_cur.fetchall()
    return result
 
