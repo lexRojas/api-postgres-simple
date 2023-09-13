@@ -10,7 +10,8 @@ route_empleado = APIRouter()
 def get_empleados(presupuesto=0):
    with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as dict_cur:
       dict_cur.execute("select codigo_empleado,"+
-                       "concat( nombre1,' ',nombre2,' ',apellido1,' ',apellido2) as nombre_completo " + 
+                       "concat( trim(nombre1),' ',trim(nombre2),' ',apellido1,' ',apellido2) as nombre_completo, " + 
+                       "concat( codigo_empleado,'-',trim(nombre1),' ', trim(nombre2),' ',apellido1,' ',apellido2) as nombre_codigo " + 
                        "from payroll.empleado e " +
                        "inner join payroll.persona p on e.persona_idpersona = p.idpersona " +
                        "where fecha_salida is null " +
